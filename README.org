@@ -18,32 +18,32 @@ Use a tool like SXHKD with XCIAO
 #+begin_src shell
     # Overide Browser Inputs
 control + j
-    xoo "Brave-browser" "ControlMask" "j" "ControlMask" "Prior" # previous tab
+    xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior" # previous tab
 
 control + k
-    xoo "Brave-browser" "ControlMask" "k" "ControlMask" "Next" # next tab
+    xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next" # next tab
 
 control + d
-    xoo "Brave-browser" "ControlMask" "d" "" "Next" # Scroll down half page
+    xciao "Brave-browser" "ControlMask" "d" "" "Next" # Scroll down half page
 
 control + u
-    xoo "Brave-browser" "ControlMask" "u" "" "Prior" # Scroll up half page
+    xciao "Brave-browser" "ControlMask" "u" "" "Prior" # Scroll up half page
 
 alt + h
-    xoo "Brave-browser" "Mod1Mask" "h" "" "Left" # left arrow key
+    xciao "Brave-browser" "Mod1Mask" "h" "" "Left" # left arrow key
 
 alt + j
-    xoo "Brave-browser" "Mod1Mask" "j" "" "Down" # down arrow key
+    xciao "Brave-browser" "Mod1Mask" "j" "" "Down" # down arrow key
 
 alt + k
-    xoo "Brave-browser" "Mod1Mask" "k" "" "Up" # up arrow key
+    xciao "Brave-browser" "Mod1Mask" "k" "" "Up" # up arrow key
 
 alt + l
-    xoo "Brave-browser" "Mod1Mask" "l" "" "Right" # right arrow key
+    xciao "Brave-browser" "Mod1Mask" "l" "" "Right" # right arrow key
 
 control + bracketleft
-    xoo "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left" # Forward browser history
+    xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left" # Forward browser history
 
 control + bracketright
-    xoo "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right" # Backwards browser history
+    xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right" # Backwards browser history
 #+end_src
