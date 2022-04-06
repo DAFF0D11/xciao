@@ -24,7 +24,9 @@ xciao will prodouce the 'Out' key, else it will prodouce the 'In' key
   xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
 #+end_src
 
-*** Use a tool like sxhkd with xciao to fix these egregious keybinds
+*** sxhkd and xciao
+ Use a tool like [[https://github.com/baskerville/sxhkd][sxhkd]] with xciao to fix these egregious keybinds
+
 **** Brave-browser
 
 Extensions like vimium and surfingkeys are execellent tools for re-mapping keys
@@ -71,8 +73,8 @@ Re-mapping native keybinds overcomes these limitations
 #+end_src
 
 *** Limitations
-This is very much a quick and dirty implementation that barely meets my own needs, and thus suffers from many
-limitations.
+This is very much a quick and dirty implementation that barely meets my own
+needs, and thus suffers from some limitations.
 
 **** Problems
 1. Keybinds are limited to a single command
