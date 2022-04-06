@@ -1,49 +1,65 @@
 * XCIAO (WIP)
 
-X Classname In And Out (xciao)
+X Classname In And Out
+
 Turn one keypress in to another for specific X window
 
 ** Say ciao to terrible default keybinds
 Native keybinds in programs like Chrome and Firefox are TERRIBLE.
+
 Do people actually use keybinds like:
 
-`Control + Tab, Control + Shift + Tab`
+#+begin_src shell
+Control + Tab, Control + Shift + Tab
+#+end_src
 
 My hands feel cramped just reading that
-
 
 ** How?
 Use a tool like SXHKD with XCIAO
 
+*** Brave-browser
+
+Extensions like vimium and surfingkeys are execellent tools for re-mapping keys
+to more comfortable alternatives.
+
+However, extensions have limitations.
+
+1. Some pages do not have access to extensions such as:
+   History, Bookmarks and Downloads pages.
+2. Pages must load extensions, if a pages is having trouble loading, you must
+   wait for it.
+
+By re-mapping native keybinds overcomes these limitations.
+
 #+begin_src shell
-    # Overide Browser Inputs
-control + j
-    xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior" # previous tab
+control + j # Previous tab
+    xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior"
 
-control + k
-    xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next" # next tab
+control + k # Next tab
+    xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next"
 
-control + d
-    xciao "Brave-browser" "ControlMask" "d" "" "Next" # Scroll down half page
+control + d # Scroll down half page
+    xciao "Brave-browser" "ControlMask" "d" "" "Next"
 
-control + u
-    xciao "Brave-browser" "ControlMask" "u" "" "Prior" # Scroll up half page
+control + u # Scroll up half page
+    xciao "Brave-browser" "ControlMask" "u" "" "Prior"
 
-alt + h
-    xciao "Brave-browser" "Mod1Mask" "h" "" "Left" # left arrow key
+alt + h # Left arrow key
+    xciao "Brave-browser" "Mod1Mask" "h" "" "Left"
 
-alt + j
-    xciao "Brave-browser" "Mod1Mask" "j" "" "Down" # down arrow key
+alt + j # Down arrow key
+    xciao "Brave-browser" "Mod1Mask" "j" "" "Down"
 
-alt + k
-    xciao "Brave-browser" "Mod1Mask" "k" "" "Up" # up arrow key
+alt + k # Up arrow key
+    xciao "Brave-browser" "Mod1Mask" "k" "" "Up"
 
-alt + l
-    xciao "Brave-browser" "Mod1Mask" "l" "" "Right" # right arrow key
+alt + l # Right arrow key
+    xciao "Brave-browser" "Mod1Mask" "l" "" "Right"
 
-control + bracketleft
-    xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left" # Forward browser history
+control + bracketleft # Forward browser history
+    xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
 
-control + bracketright
-    xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right" # Backwards browser history
+control + bracketright # Backwards browser history
+    xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right"
 #+end_src
