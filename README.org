@@ -16,50 +16,56 @@ Control + Tab, Control + Shift + Tab
 My hands feel cramped just reading that
 
 ** How?
-Use a tool like SXHKD with XCIAO
+If the classname of the current window matches the one bound to the key pressed,
+xciao will prodouce the 'Out' key, else it will prodouce the 'In' key
+#+begin_src shell
+  #                     The key you press       The key it produces
+  #     Classname       Modifier       key       Modifier   key
+  xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
+#+end_src
 
+Use a tool like sxhkd with xciao to fix these egregious keybinds
 *** Brave-browser
 
 Extensions like vimium and surfingkeys are execellent tools for re-mapping keys
 to more comfortable alternatives.
 
-However, extensions have limitations.
+However, browser extensions have limitations.
 
-1. Some pages do not have access to extensions such as:
-   History, Bookmarks and Downloads pages.
-2. Pages must load extensions, if a pages is having trouble loading, you must
-   wait for it.
+1. Some pages do not have access to extensions such as History, Bookmarks and Downloads pages.
+2. Pages must load extensions, if a pages is having trouble loading, you must wait for it.
 
-By re-mapping native keybinds overcomes these limitations.
+Re-mapping native keybinds overcomes these limitations
 
 #+begin_src shell
-control + j # Previous tab
-    xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior"
+# Brave-browser
+  control + j # Previous tab
+      xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior"
 
-control + k # Next tab
-    xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next"
+  control + k # Next tab
+      xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next"
 
-control + d # Scroll down half page
-    xciao "Brave-browser" "ControlMask" "d" "" "Next"
+  control + d # Scroll down half page
+      xciao "Brave-browser" "ControlMask" "d" "" "Next"
 
-control + u # Scroll up half page
-    xciao "Brave-browser" "ControlMask" "u" "" "Prior"
+  control + u # Scroll up half page
+      xciao "Brave-browser" "ControlMask" "u" "" "Prior"
 
-alt + h # Left arrow key
-    xciao "Brave-browser" "Mod1Mask" "h" "" "Left"
+  alt + h # Left arrow key
+      xciao "Brave-browser" "Mod1Mask" "h" "" "Left"
 
-alt + j # Down arrow key
-    xciao "Brave-browser" "Mod1Mask" "j" "" "Down"
+  alt + j # Down arrow key
+      xciao "Brave-browser" "Mod1Mask" "j" "" "Down"
 
-alt + k # Up arrow key
-    xciao "Brave-browser" "Mod1Mask" "k" "" "Up"
+  alt + k # Up arrow key
+      xciao "Brave-browser" "Mod1Mask" "k" "" "Up"
 
-alt + l # Right arrow key
-    xciao "Brave-browser" "Mod1Mask" "l" "" "Right"
+  alt + l # Right arrow key
+      xciao "Brave-browser" "Mod1Mask" "l" "" "Right"
 
-control + bracketleft # Forward browser history
-    xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
+  control + bracketleft # Forward browser history
+      xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
 
-control + bracketright # Backwards browser history
-    xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right"
+  control + bracketright # Backwards browser history
+      xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right"
 #+end_src
