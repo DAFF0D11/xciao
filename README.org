@@ -1,81 +1,57 @@
-* XCIAO (WIP)
+* Xciao
+X ClassName In And Out
 
-X Classname In And Out
+Transform one key press in to another for specific X windows only.
 
-Turn one keypress in to another for specific X window
+*** Why?
+Some applications have horrible keybinds and no way to configure them.
 
-*** Say 'ciao' to terrible default keybinds
-Native keybinds in programs like Chrome and Firefox are TERRIBLE.
+*** But xdotool...
+In the context of using xdotool with sxhkd, xdotool very often requires a vast
+array of hacks/workarounds to work. sleep 0.2, --delay, --clearmodifiers,
+spamming the keys, @release. These workarounds can even be application dependent.
+https://github.com/baskerville/sxhkd/issues?q=xdotool
 
-Do people actually use keybinds like:
+*** But extensions...
+In regards to browsers, extensions have a number of limitations.
 
-#+begin_src shell
-Control + Tab, Control + Shift + Tab
-#+end_src
+1. Loading pages block extensions.
+   Accidentally navigate to a page you don't want? Too bad, you have to wait for
+   it to load before going back.
 
-My hands feel cramped just reading that
+2. Extensions are unavailable on some pages.
+   Accidentally open new tab?
+   Find yourself on the History page?
+   What about Downloads?
+   You're now stranded, forced to do the unthinkable, use the mouse!
 
 *** How?
-If the classname of the current window matches the one passed in as an argument,
-xciao will prodouce the 'Out' key, else it will prodouce the 'In' key
-#+begin_src shell
-  #                     The key you press       The key it produces
-  #        Classname    Modifier       key       Modifier   key
-  xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
+Our only hope is to make the good keybindings produce the bad keybindings.
+
+
+** Setup
+
+#+begin_src c
+   /* xciao.c */
+
+   static Remap remaps[] = {
+  /*   Class  | Input mask  | Input key | Output mask | Output key */
+   {"Chromium","ControlMask",    "k"    ,"ControlMask", "Next"} /* ctrl-k -> Next Tab */
+   {"Chromium","Mod1Mask",       "k"    ,     ""      , "Up"}   /* alt-k -> Up arrow key */
+   };
 #+end_src
 
-*** sxhkd and xciao
- Use a tool like [[https://github.com/baskerville/sxhkd][sxhkd]] with xciao to fix these egregious keybinds
+#+begin_src sh
+  # sxhkd
 
-**** Brave-browser
+  # Next tab
+  control + k
+      xciao "ControlMask" "k"
 
-Extensions like vimium and surfingkeys are execellent tools for re-mapping keys
-to more comfortable alternatives.
+  alt + k
+      xciao "Mod1Mask" "k"
 
-However, browser extensions have limitations.
+ #+end_src
 
-1. Some pages do not have access to extensions such as History, Bookmarks and Downloads pages.
-2. Pages must load extensions, if a pages is having trouble loading, you must wait for it.
-
-Re-mapping native keybinds overcomes these limitations
-
-#+begin_src shell
-# Brave-browser
-  control + j # Previous tab
-      xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior"
-
-  control + k # Next tab
-      xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next"
-
-  control + d # Scroll down half page
-      xciao "Brave-browser" "ControlMask" "d" "" "Next"
-
-  control + u # Scroll up half page
-      xciao "Brave-browser" "ControlMask" "u" "" "Prior"
-
-  alt + h # Left arrow key
-      xciao "Brave-browser" "Mod1Mask" "h" "" "Left"
-
-  alt + j # Down arrow key
-      xciao "Brave-browser" "Mod1Mask" "j" "" "Down"
-
-  alt + k # Up arrow key
-      xciao "Brave-browser" "Mod1Mask" "k" "" "Up"
-
-  alt + l # Right arrow key
-      xciao "Brave-browser" "Mod1Mask" "l" "" "Right"
-
-  control + bracketleft # Forward browser history
-      xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
-
-  control + bracketright # Backwards browser history
-      xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right"
-#+end_src
-
-*** Limitations
-This is very much a quick and dirty implementation that barely meets my own
-needs, and thus suffers from some limitations.
-
-**** Problems
-1. Keybinds are limited to a single command
-2. Commands are limited to a single class
+** Resources
+[[https://github.com/gonzaru/dwm][Gonzaru 'no patch' DWM functions:]] Legendary resource for dwm and xlib programming. (fakepresskey, getwindowclass)

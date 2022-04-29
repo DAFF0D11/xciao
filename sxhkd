@@ -1,29 +1,39 @@
-control + j # Previous tab
-    xciao "Brave-browser" "ControlMask" "j" "ControlMask" "Prior"
+# Previous tab
+control + j
+    xciao "ControlMask" "j"
 
-control + k # Next tab
-    xciao "Brave-browser" "ControlMask" "k" "ControlMask" "Next"
+# Next tab
+control + k
+    xciao "ControlMask" "k"
 
-control + d # Scroll down half page
-    xciao "Brave-browser" "ControlMask" "d" "" "Next"
+# Scroll down half page
+control + d
+    xciao "ControlMask" "d"
 
-control + u # Scroll up half page
-    xciao "Brave-browser" "ControlMask" "u" "" "Prior"
+# Scroll up half page
+control + u
+    xciao  "ControlMask" "u"
 
-alt + h # Left arrow key
-    xciao "Brave-browser" "Mod1Mask" "h" "" "Left"
+# Left arrow key
+alt + h
+    xciao "Mod1Mask" "h"
 
-alt + j # Down arrow key
-    xciao "Brave-browser" "Mod1Mask" "j" "" "Down"
+# Down arrow key
+alt + j
+    xciao "Mod1Mask" "j"
 
-alt + k # Up arrow key
-    xciao "Brave-browser" "Mod1Mask" "k" "" "Up"
+# Up arrow key
+alt + k
+    xciao "Mod1Mask" "k"
 
-alt + l # Right arrow key
-    xciao "Brave-browser" "Mod1Mask" "l" "" "Right"
+# Right arrow key
+alt + l
+    xciao "Mod1Mask" "l"
 
-control + bracketleft # Forward browser history
-    xciao "Brave-browser" "Control" "bracketleft" "Mod1Mask" "Left"
+# Forward history
+control + bracketleft
+    xciao "ControlMask" "bracketleft"
 
-control + bracketright # Backwards browser history
-    xciao "Brave-browser" "Control" "bracketright" "Mod1Mask" "Right"
+# Backwards history
+control + bracketright
+    xciao "ControlMask" "bracketright"
