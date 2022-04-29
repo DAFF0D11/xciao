@@ -18,14 +18,15 @@ In the xciao directory simply compile.
 #+end_src
 
 *** Create remaps
-Remaps are defined in xciao.c \
-You need to supply the class name of the window, the key you want to press
-(Inputs) and the keys you want to produce for that class name (Outputs). \
+Remaps are defined in xciao.c
 
-If you are familiar with dwm, you will recognize these key naming conventions. \
-ControlMask -> Control \
-Mod1Mask    -> Alt \
-Mod4Mask    -> Super/Hyper/Windows \
+You need to supply the class name of the window, the key you want to press
+(Inputs) and the keys you want to produce for that class name (Outputs).
+
+If you are familiar with dwm, you will recognize these key naming conventions.
+- ControlMask -> Control
+- Mod1Mask    -> Alt
+- Mod4Mask    -> Super/Hyper/Windows
 #+begin_src c
    /* xciao.c */
 
@@ -58,14 +59,16 @@ https://github.com/baskerville/sxhkd/issues?q=xdotool
 *** But extensions...
 In regards to browsers, extensions have a number of limitations.
 
-1. Loading pages block extensions. \
+1. Loading pages block extensions.
    Accidentally navigate to a page you don't want? Too bad, you have to wait for
    it to load before going back.
 
-2. Extensions are unavailable on some pages.\
-   Accidentally open new tab? \
-   Find yourself on the History page? \
-   What about Downloads? \
+2. Extensions are unavailable on some pages.
+   - New tab
+   - Downloads
+   - History
+   - Extensions (ironically)
+
    You're now stranded, forced to do the unthinkable, use the mouse!
 
 ** Resources
