@@ -1,5 +1,3 @@
-/* gcc -Wall -Wextra -o xciao xciao.c -lX11 -lXtst */
-
 #include <stdio.h>
 #include <string.h>
 
@@ -20,6 +18,7 @@ static Remap remaps[] = {
  /*       Class      | Input mask  | input key    | Output mask  | Output key */
     {"Brave-browser", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
     {"Brave-browser", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"Brave-browser", "ControlMask", "h",           "Mod1Mask", "Home"},/* Go to home page */
     {"Brave-browser", "ControlMask", "d",           "",            "Next"}, /* Page down */
     {"Brave-browser", "ControlMask", "u",           "",            "Prior"},/* Page up */
     {"Brave-browser", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
@@ -31,6 +30,7 @@ static Remap remaps[] = {
 
     {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
     {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"Chromium", "ControlMask", "h",           "Mod1Mask", "Home"},/* Go to home page */
     {"Chromium", "ControlMask", "d",           "",            "Next"}, /* Page down */
     {"Chromium", "ControlMask", "u",           "",            "Prior"},/* Page up */
     {"Chromium", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
@@ -42,6 +42,7 @@ static Remap remaps[] = {
 
     {"firefox-nightly", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
     {"firefox-nightly", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"firefox-nightly", "ControlMask", "h",           "Mod1Mask", "Home"},/* Go to home page */
     {"firefox-nightly", "ControlMask", "d",           "",            "Next"}, /* Page down */
     {"firefox-nightly", "ControlMask", "u",           "",            "Prior"},/* Page up */
     {"firefox-nightly", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
