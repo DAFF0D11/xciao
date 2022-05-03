@@ -55,7 +55,8 @@ Manually install the executable to some place in your path.
   cp xciao some/place/in/path
 #+end_src
 
-*** Sxhkd mappings
+*** Map xciao to keys
+[[https://github.com/baskerville/sxhkd/][Sxhkd]] is an easy way to map commands to keys.
 
 Simply pass xciao the key you're using to trigger the command.
 #+begin_src sh
