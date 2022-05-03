@@ -4,40 +4,64 @@ X ClassName In And Out
 Transform one key press in to another for specific X windows only.
 
 *** Why?
-Some applications have horrible keybinds and no way to configure them.
+
+Some applications have horrible keybindings and no way to configure them.
 
 *** How?
+
 Our only hope is to make the good keybindings produce the bad keybindings.
 
-
 ** Setup
-*** build
-In the xciao directory simply compile.
-#+begin_src sh
-  gcc -Wall -Wextra -o xciao xciao.c -lX11 -lXtst
-#+end_src
 
 *** Create remaps
+
 Remaps are defined in xciao.c
 
 You need to supply the class name of the window, the key you want to press
 (Inputs) and the keys you want to produce for that class name (Outputs).
 
-If you are familiar with dwm, you will recognize these key naming conventions.
+If you are familiar with dwm, you will recognize the key naming conventions.
 - ControlMask -> Control
 - Mod1Mask    -> Alt
 - Mod4Mask    -> Super/Hyper/Windows
+
 #+begin_src c
    /* xciao.c */
 
    static Remap remaps[] = {
   /*   Class  | Input mask  | Input key | Output mask | Output key */
-   {"Chromium","ControlMask",    "k"    ,"ControlMask", "Next"} /* ctrl-k -> Next Tab */
-   {"Chromium","Mod1Mask",       "k"    ,     ""      , "Up"}   /* alt-k -> Up arrow key */
+    {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
+    {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
+    {"Chromium", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
+    {"Chromium", "ControlMask", "d",           "",            "Next"}, /* Control-d -> Page down */
+    {"Chromium", "ControlMask", "u",           "",            "Prior"},/* Control-u -> Page up */
+    {"Chromium", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Control-[ -> Backwards history */
+    {"Chromium", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Control-] -> Forwards history */
+    {"Chromium", "Mod1Mask",    "h",           "",            "Left"}, /* Alt-h -> Left arrow key */
+    {"Chromium", "Mod1Mask",    "j",           "",            "Down"}, /* Alt-j -> Down arrow key */
+    {"Chromium", "Mod1Mask",    "k",           "",            "Up"},   /* Alt-k -> Up arrow key */
+    {"Chromium", "Mod1Mask",    "l",           "",            "Right"},/* Alt-l -> Right arrow key */
    };
 #+end_src
 
+*** Compile
+
+You will need xlib header files.
+
+In the xciao directory compile with:
+#+begin_src sh
+  gcc -o xciao xciao.c -lX11
+#+end_src
+
+*** Install
+
+Manually install the executable to some place in your path.
+#+begin_src sh
+  cp xciao some/place/in/path
+#+end_src
+
 *** Sxhkd mappings
+
 Simply pass xciao the key you're using to trigger it.
 #+begin_src sh
   # sxhkd
@@ -46,30 +70,40 @@ Simply pass xciao the key you're using to trigger it.
   control + k
       xciao "ControlMask" "k"
 
+  # Previous tab
   alt + k
       xciao "Mod1Mask" "k"
  #+end_src
 
-*** But xdotool...
+ Start sxhkd
+ #+begin_src sh
+   sxhkd -c path/to/xciao/sxhkd
+ #+end_src
+
+** What about...
+
+*** Xdotool
+
 In the context of using xdotool with sxhkd, xdotool very often requires a vast
 array of hacks/workarounds to work. sleep 0.2, --delay, --clearmodifiers,
 spamming the keys, @release. These workarounds can even be application dependent.
-https://github.com/baskerville/sxhkd/issues?q=xdotool
 
-*** But extensions...
-In regards to browsers, extensions have a number of limitations.
+[[https://github.com/baskerville/sxhkd/issues?q=xdotool][sxhkd xdotool issues]]
+
+*** Extensions
+
+In regards to browsers, extensions have a number of limitations that native
+keybindings do not.
 
 1. Loading pages block extensions.
    Accidentally navigate to a page you don't want? Too bad, you have to wait for
    it to load before going back.
 
 2. Extensions are unavailable on some pages.
-   - New tab
    - Downloads
    - History
    - Extensions (ironically)
 
-   You're now stranded, forced to do the unthinkable, use the mouse!
-
 ** Resources
+
 [[https://github.com/gonzaru/dwm][Gonzaru 'no patch' DWM functions:]] Legendary resource for dwm and xlib programming.
