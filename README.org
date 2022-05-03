@@ -3,13 +3,9 @@ X ClassName In And Out
 
 Transform one key press in to another for specific X windows only.
 
-*** Why?
-
-Some applications have horrible keybindings and no way to configure them.
-
-*** How?
-
+Some applications have horrible keybindings and no way to configure them. \\
 Our only hope is to make the good keybindings produce the bad keybindings.
+
 
 ** Setup
 
@@ -46,8 +42,7 @@ If you are familiar with dwm, you will recognize the key naming conventions.
 
 *** Compile
 
-You will need xlib header files.
-
+You will need xlib header files. \\
 In the xciao directory compile with:
 #+begin_src sh
   gcc -o xciao xciao.c -lX11
@@ -62,17 +57,27 @@ Manually install the executable to some place in your path.
 
 *** Sxhkd mappings
 
-Simply pass xciao the key you're using to trigger it.
+Simply pass xciao the key you're using to trigger the command.
 #+begin_src sh
   # sxhkd
+
+  # Previous tab
+  control + j
+      xciao "ControlMask" "j"
 
   # Next tab
   control + k
       xciao "ControlMask" "k"
 
-  # Previous tab
-  alt + k
-      xciao "Mod1Mask" "k"
+  # Forward history
+  control + bracketleft
+      xciao "ControlMask" "bracketleft"
+
+  # Backwards history
+  control + bracketright
+      xciao "ControlMask" "bracketright"
+
+  ...
  #+end_src
 
  Start sxhkd
@@ -86,7 +91,8 @@ Simply pass xciao the key you're using to trigger it.
 
 In the context of using xdotool with sxhkd, xdotool very often requires a vast
 array of hacks/workarounds to work. sleep 0.2, --delay, --clearmodifiers,
-spamming the keys, @release. These workarounds can even be application dependent.
+spamming the keys, @release. These workarounds can even be application and
+monitor dependent.
 
 [[https://github.com/baskerville/sxhkd/issues?q=xdotool][sxhkd xdotool issues]]
 
@@ -96,9 +102,6 @@ In regards to browsers, extensions have a number of limitations that native
 keybindings do not.
 
 1. Loading pages block extensions.
-   Accidentally navigate to a page you don't want? Too bad, you have to wait for
-   it to load before going back.
-
 2. Extensions are unavailable on some pages.
    - Downloads
    - History
