@@ -6,6 +6,10 @@ control + j
 control + k
     xciao "ControlMask" "k"
 
+# Home page
+control + h
+    xciao "ControlMask" "h"
+
 # Scroll down half page
 control + d
     xciao "ControlMask" "d"
@@ -13,6 +17,14 @@ control + d
 # Scroll up half page
 control + u
     xciao  "ControlMask" "u"
+
+# Forward history
+control + bracketleft
+    xciao "ControlMask" "bracketleft"
+
+# Backwards history
+control + bracketright
+    xciao "ControlMask" "bracketright"
 
 # Left arrow key
 alt + h
@@ -29,11 +41,3 @@ alt + k
 # Right arrow key
 alt + l
     xciao "Mod1Mask" "l"
-
-# Forward history
-control + bracketleft
-    xciao "ControlMask" "bracketleft"
-
-# Backwards history
-control + bracketright
-    xciao "ControlMask" "bracketright"
