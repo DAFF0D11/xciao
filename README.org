@@ -25,18 +25,18 @@ If you are familiar with dwm, you will recognize the key naming conventions.
    /* xciao.c */
 
    static Remap remaps[] = {
-  /*   Class  | Input mask  | Input key | Output mask | Output key */
-    {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
-    {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
-    {"Chromium", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
-    {"Chromium", "ControlMask", "d",           "",            "Next"}, /* Control-d -> Page down */
-    {"Chromium", "ControlMask", "u",           "",            "Prior"},/* Control-u -> Page up */
-    {"Chromium", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Control-[ -> Backwards history */
-    {"Chromium", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Control-] -> Forwards history */
-    {"Chromium", "Mod1Mask",    "h",           "",            "Left"}, /* Alt-h -> Left arrow key */
-    {"Chromium", "Mod1Mask",    "j",           "",            "Down"}, /* Alt-j -> Down arrow key */
-    {"Chromium", "Mod1Mask",    "k",           "",            "Up"},   /* Alt-k -> Up arrow key */
-    {"Chromium", "Mod1Mask",    "l",           "",            "Right"},/* Alt-l -> Right arrow key */
+  /*   Class   | Input mask   | Input key     | Output mask  | Output key */
+    {"Chromium", "ControlMask", "j",            "ControlMask", "Prior"}, /* Control-j -> Previous tab */
+    {"Chromium", "ControlMask", "k",            "ControlMask", "Next"},  /* Control-k -> Next tab */
+    {"Chromium", "ControlMask", "h",            "Mod1Mask",    "Home"},  /* Control-h -> Home page */
+    {"Chromium", "ControlMask", "d",            "",            "Next"},  /* Control-d -> Page down */
+    {"Chromium", "ControlMask", "u",            "",            "Prior"}, /* Control-u -> Page up */
+    {"Chromium", "ControlMask", "bracketleft",  "Mod1Mask",    "Left"},  /* Control-[ -> Backwards history */
+    {"Chromium", "ControlMask", "bracketright", "Mod1Mask",    "Right"}, /* Control-] -> Forwards history */
+    {"Chromium", "Mod1Mask",    "h",            "",            "Left"},  /* Alt-h -> Left arrow key */
+    {"Chromium", "Mod1Mask",    "j",            "",            "Down"},  /* Alt-j -> Down arrow key */
+    {"Chromium", "Mod1Mask",    "k",            "",            "Up"},    /* Alt-k -> Up arrow key */
+    {"Chromium", "Mod1Mask",    "l",            "",            "Right"}, /* Alt-l -> Right arrow key */
    };
 #+end_src
 
