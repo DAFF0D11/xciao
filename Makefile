@@ -1,4 +1,4 @@
-# xciao - X Classname In And Out
+# xciao - X Class name In And Out
 
 PREFIX = /usr/local
 
