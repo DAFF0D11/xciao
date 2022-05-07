@@ -15,7 +15,7 @@ typedef struct {
 } Remap;
 
 static Remap remaps[] = {
- /*       Class      | Input mask  | input key    | Output mask  | Output key */
+  /*   Class   | Input mask   | Input key     | Output mask  | Output key */
     {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
     {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
     {"Chromium", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
@@ -98,6 +98,7 @@ int main(int argc, char **argv) {
 
   if (argc != 3)
     return 1;
+
 
   display = XOpenDisplay(NULL);
   XGetInputFocus(display, &focus, &revert);
