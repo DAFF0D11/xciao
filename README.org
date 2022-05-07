@@ -1,5 +1,5 @@
 * Xciao
-X ClassName In And Out
+X Classname In And Out
 
 Transform one key press in to another for specific X windows only.
 
@@ -42,17 +42,17 @@ If you are familiar with dwm, you will recognize the key naming conventions.
 
 *** Compile
 
-You will need xlib header files. \\
-In the xciao directory compile with:
+You will need xlib header files and make.
+
+Compile with:
 #+begin_src sh
-  gcc -o xciao xciao.c -lX11
+  make
 #+end_src
 
 *** Install
-
-Manually install the executable to some place in your path.
+Install with
 #+begin_src sh
-  cp xciao some/place/in/path
+  make install
 #+end_src
 
 *** Map xciao to keys
