@@ -1,11 +1,10 @@
 * Xciao
-X Classname In And Out
+X Class name In And Out
 
 Transform one key press in to another for specific X windows only.
 
 Some applications have horrible keybindings and no way to configure them. \\
 Our only hope is to make the good keybindings produce the bad keybindings.
-
 
 ** Setup
 
@@ -50,15 +49,17 @@ Compile with:
 #+end_src
 
 *** Install
+
 Install with
 #+begin_src sh
   make install
 #+end_src
 
 *** Map xciao to keys
+
 [[https://github.com/baskerville/sxhkd/][Sxhkd]] is an easy way to map commands to keys.
 
-Simply pass xciao the key you're using to trigger the command.
+Simply pass xciao the key you're using to trigger the xciao command.
 #+begin_src sh
   # sxhkd
 
@@ -106,8 +107,9 @@ keybindings do not.
 2. Extensions are unavailable on some pages.
    - Downloads
    - History
+   - File
    - Extensions (ironically)
 
 ** Resources
 
-[[https://github.com/gonzaru/dwm][Gonzaru 'no patch' DWM functions:]] Legendary resource for dwm and xlib programming.
+[[https://github.com/gonzaru/dwm][Gonzaru 'no patch' DWM functions:]] Excellent resource for dwm and xlib programming.
