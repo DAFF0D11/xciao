@@ -1,3 +1,4 @@
+#include <X11/X.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -15,42 +16,39 @@ typedef struct {
 } Remap;
 
 static Remap remaps[] = {
-  /*   Class   | Input mask   | Input key     | Output mask  | Output key */
-    {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
-    {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
-    {"Chromium", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
-    {"Chromium", "ControlMask", "d",           "",            "Next"}, /* Control-d -> Page down */
-    {"Chromium", "ControlMask", "u",           "",            "Prior"},/* Contorl-u -> Page up */
-    {"Chromium", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Control-[ -> Backwards history */
-    {"Chromium", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Control-] -> Forwards history */
-    {"Chromium", "Mod1Mask",    "h",           "",            "Left"}, /* Alt-h -> Left arrow key */
-    {"Chromium", "Mod1Mask",    "j",           "",            "Down"}, /* Alt-j -> Down arrow key */
-    {"Chromium", "Mod1Mask",    "k",           "",            "Up"},   /* Alt-k -> Up arrow key */
-    {"Chromium", "Mod1Mask",    "l",           "",            "Right"},/* Alt-l -> Right arrow key */
+ /*       Class      | Input mask  | input key    | Output mask  | Output key */
+    {"Brave-browser", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
+    {"Brave-browser", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"Brave-browser", "ControlMask", "d",           "",            "Next"}, /* Page down */
+    {"Brave-browser", "ControlMask", "u",           "",            "Prior"},/* Page up */
+    {"Brave-browser", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
+    {"Brave-browser", "Mod1Mask",    "j",           "",            "Down"}, /* Down arrow key */
+    {"Brave-browser", "Mod1Mask",    "k",           "",            "Up"},   /* Up arrow key */
+    {"Brave-browser", "Mod1Mask",    "l",           "",            "Right"},/* Right arrow key */
+    {"Brave-browser", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Backwards history */
+    {"Brave-browser", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Forwards history */
 
-    {"Brave-browser", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
-    {"Brave-browser", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
-    {"Brave-browser", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
-    {"Brave-browser", "ControlMask", "d",           "",            "Next"}, /* Control-d -> Page down */
-    {"Brave-browser", "ControlMask", "u",           "",            "Prior"},/* Contorl-u -> Page up */
-    {"Brave-browser", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Control-[ -> Backwards history */
-    {"Brave-browser", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Control-] -> Forwards history */
-    {"Brave-browser", "Mod1Mask",    "h",           "",            "Left"}, /* Alt-h -> Left arrow key */
-    {"Brave-browser", "Mod1Mask",    "j",           "",            "Down"}, /* Alt-j -> Down arrow key */
-    {"Brave-browser", "Mod1Mask",    "k",           "",            "Up"},   /* Alt-k -> Up arrow key */
-    {"Brave-browser", "Mod1Mask",    "l",           "",            "Right"},/* Alt-l -> Right arrow key */
+    {"Chromium", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
+    {"Chromium", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"Chromium", "ControlMask", "d",           "",            "Next"}, /* Page down */
+    {"Chromium", "ControlMask", "u",           "",            "Prior"},/* Page up */
+    {"Chromium", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
+    {"Chromium", "Mod1Mask",    "j",           "",            "Down"}, /* Down arrow key */
+    {"Chromium", "Mod1Mask",    "k",           "",            "Up"},   /* Up arrow key */
+    {"Chromium", "Mod1Mask",    "l",           "",            "Right"},/* Right arrow key */
+    {"Chromium", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Backwards history */
+    {"Chromium", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Forwards history */
 
-    {"firefox-nightly", "ControlMask", "j",           "ControlMask", "Prior"},/* Control-j -> Previous tab */
-    {"firefox-nightly", "ControlMask", "k",           "ControlMask", "Next"}, /* Control-k -> Next tab */
-    {"firefox-nightly", "ControlMask", "h",           "Mod1Mask",    "Home"}, /* Control-h -> Home page */
-    {"firefox-nightly", "ControlMask", "d",           "",            "Next"}, /* Control-d -> Page down */
-    {"firefox-nightly", "ControlMask", "u",           "",            "Prior"},/* Contorl-u -> Page up */
-    {"firefox-nightly", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Control-[ -> Backwards history */
-    {"firefox-nightly", "ControlMask", "bracketright","Mod1Mask",    "Right"},/* Control-] -> Forwards history */
-    {"firefox-nightly", "Mod1Mask",    "h",           "",            "Left"}, /* Alt-h -> Left arrow key */
-    {"firefox-nightly", "Mod1Mask",    "j",           "",            "Down"}, /* Alt-j -> Down arrow key */
-    {"firefox-nightly", "Mod1Mask",    "k",           "",            "Up"},   /* Alt-k -> Up arrow key */
-    {"firefox-nightly", "Mod1Mask",    "l",           "",            "Right"},/* Alt-l -> Right arrow key */
+    {"firefox-nightly", "ControlMask", "k",           "ControlMask", "Next"}, /* Next tab */
+    {"firefox-nightly", "ControlMask", "j",           "ControlMask", "Prior"},/* Previous tab */
+    {"firefox-nightly", "ControlMask", "d",           "",            "Next"}, /* Page down */
+    {"firefox-nightly", "ControlMask", "u",           "",            "Prior"},/* Page up */
+    {"firefox-nightly", "Mod1Mask",    "h",           "",            "Left"}, /* Left arrow key */
+    {"firefox-nightly", "Mod1Mask",    "j",           "",            "Down"}, /* Down arrow key */
+    {"firefox-nightly", "Mod1Mask",    "k",           "",            "Up"},   /* Up arrow key */
+    {"firefox-nightly", "Mod1Mask",    "l",           "",            "Right"},/* Right arrow key */
+    {"firefox-nightly", "ControlMask", "bracketleft", "Mod1Mask",    "Left"}, /* Backwards history */
+    {"firefox-nightly", "ControlMask", "bracketright","Mod1Mask",    "Right"} /* Forwards history */
 };
 
 char *getwindowclass(Display *display, Window w, XClassHint ch) {
@@ -99,7 +97,6 @@ int main(int argc, char **argv) {
   if (argc != 3)
     return 1;
 
-
   display = XOpenDisplay(NULL);
   XGetInputFocus(display, &focus, &revert);
   XGetClassHint(display, focus, &ch);
@@ -110,11 +107,12 @@ int main(int argc, char **argv) {
       if ((strcmp(r->inputMask, argv[1]) == 0) &&
           (strcmp(r->inputKey, argv[2]) == 0)) {
         fakepresskey(display, focus, r->outputMask, r->outputKey);
+        XCloseDisplay(display);
         return 0;
       }
     }
   }
-
   fakepresskey(display, focus, argv[1], argv[2]);
+  XCloseDisplay(display);
   return 0;
 }
