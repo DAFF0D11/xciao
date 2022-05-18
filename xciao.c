@@ -114,5 +114,5 @@ int main(int argc, char **argv) {
   }
   fakepresskey(display, focus, argv[1], argv[2]);
   XCloseDisplay(display);
-  return 0;
+  return 1;
 }
