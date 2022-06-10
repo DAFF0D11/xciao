@@ -13,7 +13,7 @@ all:
 clean:
 	rm $(TARGET)
 
-install:
+install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp -f xciao $(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/xciao
